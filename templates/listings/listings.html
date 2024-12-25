@@ -19,7 +19,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            {% comment %} <a href="index.html"> <i class="fas fa-home"></i> Home</a> {% endcomment %}
+            <!-- correct -->
             <a href={% url "index" %}> <i class="fas fa-home"></i> Home</a>
           </li>
           <li class="breadcrumb-item active">Browse Listings</li>
@@ -80,7 +80,7 @@
                 </div>
               </div>
               <hr />
-                      {% comment %} fix imag  {% endcomment %}
+              <!--correct-->
               <a href={% url "listing" listing.id %} class="btn btn-primary btn-block"
                 >More Info</a
               >
