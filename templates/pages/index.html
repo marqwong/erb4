@@ -14,8 +14,8 @@
                 tempore! Consectetur, id commodi!
               </p>
               <div class="search">
-                {% comment %} correct later {% endcomment %}
-                <form action="{% url 'search' %}">
+                {% comment %} update csrf later {% endcomment %}
+                <form action={% url 'search' %} method="GET">
                   <!-- Form Row 1 -->
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
@@ -29,12 +29,12 @@
                     </div>
   
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">street</label>
+                      <label class="sr-only">Title</label>
                       <input
                         type="text"
-                        name="street"
+                        name="title"
                         class="form-control"
-                        placeholder="Street"
+                        placeholder="Title"
                       />
                     </div>
   
@@ -42,7 +42,6 @@
                       <label class="sr-only">District</label>
                       <select name="district" class="form-control">
                         <option selected="true" disabled="disabled">
-                          District (All)
                         </option>
                         {% for key,value in district_choices.items %}
                           <option value={{ key }}>{{ value }}</option>
@@ -107,9 +106,9 @@
                 </div>
                 <div class="card-body">
                   <div class="listing-heading text-center">
-                    <h4 class="text-primary">{{ listing.title }}</h4>
+                    <h4 class="text-primary">{{ listing.title | title}}</h4>
                     <p>
-                      <i class="fas fa-map-marker text-secondary"></i>{{ listing.district }}
+                      <i class="fas fa-map-marker text-secondary"></i>{{listing.get_district_display}}
                     </p>
                   </div>
                   <hr />
