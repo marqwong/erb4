@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-<!-- Project demo added: use by base.html master structure -->
 {% block content %}
+<!-- Project demo added: use by base.html master structure -->
 <!-- Self content input, this is list function form settings.py -->
 
 <!-- Showcase-inner-->
@@ -25,7 +25,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+          <a href={% url 'index' %}> <i class="fas fa-home"></i> Home</a>
         </li>
         <li class="breadcrumb-item active">About</li>
       </ol>
@@ -52,9 +52,8 @@
           laborum molestias quia.
         </p>
       </div>
-      {% comment %} modify mvb {% endcomment %}
-      {% if mvp_realtors %}
       <div class="col-md-4">
+      {% if mvp_realtors %}
         {% for realtor in mvp_realtors %}
         <div class="card">
           <img
@@ -64,10 +63,9 @@
           />
           <div class="card-body">
             <h5 class="card-title">Seller Of The Month</h5>
-            <h6 class="text-secondary">{{realtor.name}}</h6>
+            <h6 class="text-secondary">{{mvp_realtor.name}}</h6>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nesciunt amet, illo itaque similique repellat. content.
+              {{mvp_realtor.description}}
             </p>
           </div>
         </div>
